@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import shortid from 'shortid';
 import { ContactForm } from './ContactForm';
+import { Filter } from './Filter';
 import { ContactList } from './ContactList';
 import { Container } from './App.styled';
 
@@ -30,6 +31,7 @@ export class App extends Component {
         <h1>Phonebook</h1>
         <ContactForm onSubmit={this.formSubmitHandler} />
         <h2>Contacts</h2>
+        <Filter/>
         <ContactList users={contacts} />
       </Container>
     );
