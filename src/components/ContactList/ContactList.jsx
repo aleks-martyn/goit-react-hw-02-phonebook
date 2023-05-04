@@ -10,5 +10,9 @@ export const ContactList = ({ users }) => (
 );
 
 ContactList.propTypes = {
-  id: PropTypes.string,
+  users: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+    })
+  ),
 };
