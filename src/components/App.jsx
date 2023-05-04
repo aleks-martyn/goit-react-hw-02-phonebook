@@ -6,12 +6,17 @@ export class App extends Component {
   state = {
     contacts: [],
     name: '',
+    number: '',
+  };
+
+  formSubmitHandler = data => {
+    console.log(data);
   };
 
   render() {
     return (
       <Container>
-        <ContactForm />
+        <ContactForm onSubmit={this.formSubmitHandler} />
       </Container>
     );
   }
