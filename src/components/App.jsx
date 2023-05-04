@@ -19,19 +19,23 @@ export class App extends Component {
   formSubmitHandler = data => {
     const contact = { id: shortid.generate(), ...data };
 
-    this.setState(({contacts}) => ({
+    this.setState(({ contacts }) => ({
       contacts: [contact, ...contacts],
     }));
   };
 
+  changeFilter = event => {
+    this.setState({ filter: event.currentTarget.value });
+  };
+
   render() {
-    const { contacts } = this.state;
+    const { contacts, filter } = this.state;
     return (
       <Container>
         <h1>Phonebook</h1>
         <ContactForm onSubmit={this.formSubmitHandler} />
         <h2>Contacts</h2>
-        <Filter/>
+        <Filter value={filter} onChange={this.changeFilter} />
         <ContactList users={contacts} />
       </Container>
     );
