@@ -9,6 +9,10 @@ export class App extends Component {
   };
 
   render() {
-    return <Container></Container>;
+    return (
+      <Container>
+        <ContactForm />
+      </Container>
+    );
   }
 }
