@@ -13,11 +13,7 @@ export class ContactForm extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    const form = event.currentTarget;
-    const login = form.elements.login.value;
-    console.log(login);
-    this.props.onSubmit({ login });
-    form.reset();
+    this.props.onSubmit(this.state);
   };
 
   render() {
