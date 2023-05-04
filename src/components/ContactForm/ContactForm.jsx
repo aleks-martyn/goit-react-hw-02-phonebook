@@ -7,8 +7,8 @@ export class ContactForm extends Component {
   };
 
   handleNameChange = event => {
-    console.log(event.currentTarget.value);
-    this.setState({ [event.currentTarget.name]: event.currentTarget.value });
+    const { name, value } = event.currentTarget;
+    this.setState({ [name]: value });
   };
 
   handleSubmit = event => {
