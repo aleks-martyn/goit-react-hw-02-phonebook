@@ -18,8 +18,8 @@ export class App extends Component {
   formSubmitHandler = data => {
     const contact = { id: shortid.generate(), ...data };
 
-    this.setState(prevState => ({
-      contacts: [contact, ...prevState.contacts],
+    this.setState(({contacts}) => ({
+      contacts: [contact, ...contacts],
     }));
   };
 
