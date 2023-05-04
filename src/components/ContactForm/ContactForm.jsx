@@ -1,22 +1,36 @@
 import { Component } from 'react';
 
-class ContactForm extends Component {
-  handleSubmit = evt => {
-    evt.preventDefault();
-    const form = evt.currentTarget;
+export class ContactForm extends Component {
+  state = {
+    name: '',
+  };
+
+  handleNameChange = event => {
+    console.log(event.currentTarget.value);
+    this.setState({ name: event.currentTarget.value });
+  };
+
+  handleSubmit = event => {
+    event.preventDefault();
+    const form = event.currentTarget;
     const login = form.elements.login.value;
-    const password = form.elements.password.value;
-    console.log(login, password);
-    this.props.onSubmit({ login, password });
+    console.log(login);
+    this.props.onSubmit({ login });
     form.reset();
   };
 
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <input type="text" name="login" />
-        <input type="password" name="password" />
-        <button type="submit">Login</button>
+        <label>
+          <span>Name</span>
+          <input
+            type="text"
+            value={this.state.name}
+            onChange={this.handleNameChange}
+          />
+        </label>
+        <button type="submit">Add contact</button>
       </form>
     );
   }
