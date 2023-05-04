@@ -26,6 +26,7 @@ export class ContactForm extends Component {
           <span>Name</span>
           <input
             type="text"
+            name="name"
             value={this.state.name}
             onChange={this.handleNameChange}
           />
