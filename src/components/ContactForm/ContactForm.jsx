@@ -1,10 +1,14 @@
 import { Component } from 'react';
+import shortid from 'shortid';
 
 export class ContactForm extends Component {
   state = {
     name: '',
     number: '',
   };
+
+  nameInputId = shortid.generate();
+  numberInputId = shortid.generate();
 
   handleNameChange = event => {
     const { name, value } = event.currentTarget;
@@ -24,7 +28,7 @@ export class ContactForm extends Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <label htmlFor="id-1">
+        <label htmlFor={this.nameInputId}>
           <span>Name</span>
         </label>
         <input
@@ -35,10 +39,10 @@ export class ContactForm extends Component {
           required
           value={this.state.name}
           onChange={this.handleNameChange}
-          id="id-1"
+          id={this.nameInputId}
         />
 
-        <label htmlFor="id-2">
+        <label htmlFor={this.numberInputId}>
           <span>Number</span>
         </label>
         <input
@@ -49,7 +53,7 @@ export class ContactForm extends Component {
           required
           value={this.state.number}
           onChange={this.handleNameChange}
-          id="id-2"
+          id={this.numberInputId}
         />
 
         <button type="submit">Add contact</button>
