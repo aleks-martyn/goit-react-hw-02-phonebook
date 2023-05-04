@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import shortid from 'shortid';
 import { ContactForm } from './ContactForm';
 import { Container } from './App.styled';
 
@@ -9,7 +10,11 @@ export class App extends Component {
   };
 
   formSubmitHandler = data => {
-    console.log(data);
+    const contact = { id: shortid.generate(), ...data };
+    
+    this.setState(prevState => ({
+      contacts: [contact, ...prevState.contacts],
+    }));
   };
 
   render() {
