@@ -5,8 +5,6 @@ import { Container } from './App.styled';
 export class App extends Component {
   state = {
     contacts: [],
-    name: '',
-    number: '',
   };
 
   formSubmitHandler = data => {
