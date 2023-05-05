@@ -28,10 +28,10 @@ export class App extends Component {
     this.setState({ filter: event.currentTarget.value });
   };
 
-  getFilterContacts = () => {
+  getFilteredContacts = () => {
     const { contacts, filter } = this.state;
     const normalizedFilter = filter.toLowerCase();
-    
+
     return contacts.filter(({ name }) =>
       name.toLowerCase().includes(normalizedFilter)
     );
@@ -39,7 +39,7 @@ export class App extends Component {
 
   render() {
     const { filter } = this.state;
-    const filterContacts = this.getFilterContacts();
+    const filteredContacts = this.getFilteredContacts();
 
     return (
       <Container>
@@ -47,7 +47,7 @@ export class App extends Component {
         <ContactForm onSubmit={this.formSubmitHandler} />
         <h2>Contacts</h2>
         <Filter value={filter} onChange={this.changeFilter} />
-        <ContactList users={filterContacts} />
+        <ContactList users={filteredContacts} />
       </Container>
     );
   }
