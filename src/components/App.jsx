@@ -17,6 +17,17 @@ export class App extends Component {
   };
 
   formSubmitHandler = formData => {
+    const { name } = formData;
+    const { contacts } = this.state;
+    if (
+      contacts.find(
+        contact => contact.name.toLowerCase() === name.toLowerCase()
+      )
+    ) {
+      alert(`${name} is already in contacts`);
+      return;
+    }
+
     const contact = { id: shortid.generate(), ...formData };
 
     this.setState(({ contacts }) => ({
@@ -53,7 +64,10 @@ export class App extends Component {
         <ContactForm onSubmit={this.formSubmitHandler} />
         <h2>Contacts</h2>
         <Filter value={filter} onChange={this.changeFilter} />
-        <ContactList users={filteredContacts} onDeleteContact={this.deleteContact} />
+        <ContactList
+          users={filteredContacts}
+          onDeleteContact={this.deleteContact}
+        />
       </Container>
     );
   }
