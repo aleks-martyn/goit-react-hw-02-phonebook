@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
 import shortid from 'shortid';
-import { Form, Input } from './ContactForm.styled';
+import { Form, FormLabel, Input } from './ContactForm.styled';
 
 export class ContactForm extends Component {
   state = {
@@ -31,9 +31,9 @@ export class ContactForm extends Component {
     const { name, number } = this.state;
     return (
       <Form onSubmit={this.handleSubmit}>
-        <label htmlFor={this.nameInputId}>
+        <FormLabel htmlFor={this.nameInputId}>
           <span>Name</span>
-        </label>
+        </FormLabel>
         <Input
           type="text"
           name="name"
@@ -45,9 +45,9 @@ export class ContactForm extends Component {
           id={this.nameInputId}
         />
 
-        <label htmlFor={this.numberInputId}>
+        <FormLabel htmlFor={this.numberInputId}>
           <span>Number</span>
-        </label>
+        </FormLabel>
         <Input
           type="tel"
           name="number"
