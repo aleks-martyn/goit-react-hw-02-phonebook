@@ -5,6 +5,10 @@ export const Form = styled.form`
   flex-direction: column;
 `;
 
+export const FormLabel = styled.label`
+  margin-bottom: 10px;
+`;
+
 export const Input = styled.input`
   margin-bottom: 25px;
 `;
