@@ -5,6 +5,7 @@ export const ContactListItem = ({ userName, userNumber }) => (
     <p>
       {userName}: <span>{userNumber}</span>
     </p>
+    <button type="button">Delete</button>
   </li>
 );
 
