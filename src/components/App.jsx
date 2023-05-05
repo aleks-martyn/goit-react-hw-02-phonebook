@@ -16,8 +16,8 @@ export class App extends Component {
     filter: '',
   };
 
-  formSubmitHandler = data => {
-    const contact = { id: shortid.generate(), ...data };
+  formSubmitHandler = formData => {
+    const contact = { id: shortid.generate(), ...formData };
 
     this.setState(({ contacts }) => ({
       contacts: [contact, ...contacts],
