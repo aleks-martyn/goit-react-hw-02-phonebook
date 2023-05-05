@@ -30,13 +30,18 @@ export class App extends Component {
 
   render() {
     const { contacts, filter } = this.state;
+    const normalizedFilter = filter.toLowerCase();
+    const filterContacts = contacts.filter(({ name }) =>
+      name.toLowerCase().includes(normalizedFilter)
+    );
+
     return (
       <Container>
         <h1>Phonebook</h1>
         <ContactForm onSubmit={this.formSubmitHandler} />
         <h2>Contacts</h2>
         <Filter value={filter} onChange={this.changeFilter} />
-        <ContactList users={contacts} />
+        <ContactList users={filterContacts} />
       </Container>
     );
   }
