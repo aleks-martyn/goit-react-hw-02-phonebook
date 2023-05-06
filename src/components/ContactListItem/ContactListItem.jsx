@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { Item, Text } from './ContactListItem.styled';
+import { Item, Text, Marker } from './ContactListItem.styled';
 
 export const ContactListItem = ({
   userId,
@@ -8,6 +8,7 @@ export const ContactListItem = ({
   onDeleteContact,
 }) => (
   <Item>
+    <Marker></Marker>
     <Text>
       {userName}: <span>{userNumber}</span>
     </Text>
