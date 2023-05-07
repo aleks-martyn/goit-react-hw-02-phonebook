@@ -7,10 +7,9 @@ export const ContactList = ({ users, onDeleteContact }) => (
     {users.map(({ id, name, number }) => (
       <ContactListItem
         key={id}
-        userId={id}
         userName={name}
         userNumber={number}
-        onDeleteContact={onDeleteContact}
+        onDelete={() => onDeleteContact(id)}
       />
     ))}
   </List>
